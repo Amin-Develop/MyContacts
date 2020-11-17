@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyContacts.Interfaces.Validations.Repository
+﻿namespace MyContacts.Interfaces.Validations.Repositories
 {
     interface IValidationRepository
     {
@@ -20,7 +16,7 @@ namespace MyContacts.Interfaces.Validations.Repository
         //return login form inputs errors where LoginFormValidation() returned false 
         public string LoginFormErrors(string username, string pwd);
 
-        //check are newcontact forms inputs valid
+        //check are new contact forms inputs valid
         public bool IsContactValid(string name, string ip, int Age);
 
         //return login form inputs errors where LoginFormValidation() returned false 

@@ -1,7 +1,7 @@
-﻿using MyContacts.Interfaces.Validations.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyContacts.Interfaces.Validations.Repositories;
 
 namespace MyContacts.Interfaces.Validations.Services
 {

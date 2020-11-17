@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using MyContacts.Interfaces.Validations.Repository;
+using MyContacts.Interfaces.Validations.Repositories;
 using MyContacts.Interfaces.Validations.Services;
 
 namespace MyContacts.Account
