@@ -1,6 +1,5 @@
-﻿using System;
+﻿using MyContacts.Interfaces;
 using System.Data.SQLite;
-using MyContacts.Interfaces;
 
 namespace MyContacts.Data
 {
@@ -18,13 +17,22 @@ namespace MyContacts.Data
 			_sqLiteCommand = _sqLiteConnection.CreateCommand();
 		}
 
-		public void ExecSql()
+		public void ExecSql(string sql)
 		{
+			if (_dataReader != null && !_dataReader.IsClosed) _dataReader.Close();
+
+			_sqLiteCommand.CommandText = sql;
+			_sqLiteCommand.ExecuteNonQuery();
 		}
 
-		public SQLiteDataReader RawQuery()
+		public SQLiteDataReader RawQuery(string query)
 		{
-			throw new NotImplementedException();
+			if (_dataReader != null && !_dataReader.IsClosed) _dataReader.Close();
+
+			_sqLiteCommand.CommandText = query;
+			_dataReader = _sqLiteCommand.ExecuteReader();
+
+			return _dataReader;
 		}
 	}
 }
