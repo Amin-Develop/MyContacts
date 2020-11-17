@@ -1,40 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyContacts.Data;
 using MyContacts.Interfaces.Validations.Repositories;
 
 namespace MyContacts.Interfaces.Validations.Services
 {
-    public class ValidationRepository : IValidationRepository
-    {
-        bool IValidationRepository.IsContactValid(string name, string ip, int Age)
-        {
-            throw new NotImplementedException();
-        }
+	public class ValidationRepository : IValidationRepository
+	{
+		bool IValidationRepository.IsContactValid(string name, string ip, int Age)
+		{
+			if (string.IsNullOrEmpty(name.Trim())) return false;
 
-        bool IValidationRepository.IsLoginFormValid(string username, string pwd)
-        {
-            throw new NotImplementedException();
-        }
+			if (string.IsNullOrEmpty(ip.Trim())) return false;
 
-        bool IValidationRepository.IsRegisterFormValid(string username, string pwd, string confirmpwd)
-        {
-            throw new NotImplementedException();
-        }
+			if (string.IsNullOrEmpty(Age.ToString().Trim())) return false;
 
-        string IValidationRepository.LoginFormErrors(string username, string pwd)
-        {
-            throw new NotImplementedException();
-        }
+			// todo: check from database
 
-        string IValidationRepository.RegisterFormErrors(string username, string pwd, string confirmpwd)
-        {
-            throw new NotImplementedException();
-        }
+			if (Age > 99 || Age < 10) return false;
 
-        string IValidationRepository.ValidationContactError(string name, string ip, int Age)
-        {
-            throw new NotImplementedException();
-        }
-    }
+			return true;
+		}
+
+		bool IValidationRepository.IsLoginFormValid(string username, string pwd)
+		{
+			if (string.IsNullOrEmpty(username.Trim())) return false;
+
+			if (string.IsNullOrEmpty(pwd.Trim())) return false;
+
+			// todo: check from database
+
+			return true;
+		}
+
+		bool IValidationRepository.IsRegisterFormValid(string username, string pwd, string confirmpwd)
+		{
+			if (string.IsNullOrEmpty(username.Trim())) return false;
+
+			if (string.IsNullOrEmpty(pwd.Trim())) return false;
+
+			if (string.IsNullOrEmpty(confirmpwd.Trim())) return false;
+
+			if (!pwd.Equals(confirmpwd)) return false;
+
+			// todo: check from database
+			
+			return true;
+		}
+
+		string IValidationRepository.LoginFormErrors(string username, string pwd)
+		{
+			throw new NotImplementedException();
+		}
+
+		string IValidationRepository.RegisterFormErrors(string username, string pwd, string confirmpwd)
+		{
+			throw new NotImplementedException();
+		}
+
+		string IValidationRepository.ValidationContactError(string name, string ip, int Age)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

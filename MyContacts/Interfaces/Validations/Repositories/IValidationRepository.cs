@@ -2,7 +2,6 @@
 {
     interface IValidationRepository
     {
-
         //check are register forms inputs valid (not empty , not exist same user , cofirm pwd is match)
         public bool IsRegisterFormValid(string username, string pwd, string confirmpwd);
 
