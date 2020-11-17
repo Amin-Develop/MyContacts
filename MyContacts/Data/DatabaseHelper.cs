@@ -2,15 +2,10 @@
 
 namespace MyContacts.Data
 {
-	public class DatabaseHelper : IDatabaseHelper
+	public class DatabaseHelper : DbHelper
 	{
-		private DatabaseHelper _this;
-		
-		private DatabaseHelper() {}
-		
-		public IDatabaseHelper GetInstance()
+		private DatabaseHelper()
 		{
-			return _this ??= new DatabaseHelper();
 		}
 	}
 }

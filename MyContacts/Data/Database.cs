@@ -1,11 +1,11 @@
-﻿using System.Data.SQLite;
+﻿using System;
+using System.Data.SQLite;
+using MyContacts.Interfaces;
 
 namespace MyContacts.Data
 {
-	internal class Database
+	public class Database : Singleton
 	{
-		private Database _this;
-
 		private SQLiteConnection _sqLiteConnection;
 		private SQLiteCommand _sqLiteCommand;
 		private SQLiteDataReader _dataReader;
@@ -18,16 +18,13 @@ namespace MyContacts.Data
 			_sqLiteCommand = _sqLiteConnection.CreateCommand();
 		}
 
-		internal Database GetInstance() => _this ??= new Database();
-
-		internal void ExecSql()
+		public void ExecSql()
 		{
-			
 		}
 
-		internal void RawQuery()
+		public SQLiteDataReader RawQuery()
 		{
-			
+			throw new NotImplementedException();
 		}
 	}
 }
