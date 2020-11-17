@@ -7,5 +7,15 @@ namespace MyContacts.Data
 		private DatabaseHelper()
 		{
 		}
-	}
+
+        public override void InsertContact(string name, string ip, int Age)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Register()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }
