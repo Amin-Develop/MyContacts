@@ -38,7 +38,7 @@ namespace MyContacts.Interfaces
         public abstract void Register();
 
 
-        public abstract 
+        //public abstract 
 
     }
 }
