@@ -6,20 +6,20 @@
         public bool IsRegisterFormValid(string username, string pwd, string confirmpwd);
 
         //return register form inputs errors where RegisterFormValidation() returned false 
-        public string RegisterFormErrors(string username, string pwd, string confirmpwd);
+        public string GetLastRegisterFormError();
 
 
         //check are login forms inputs valid (not empty , exist same user)
         public bool IsLoginFormValid(string username, string pwd);
 
         //return login form inputs errors where LoginFormValidation() returned false 
-        public string LoginFormErrors(string username, string pwd);
+        public string GetLastLoginFormErrors();
 
         //check are new contact forms inputs valid
         public bool IsContactValid(string name, string ip, int Age);
 
         //return login form inputs errors where LoginFormValidation() returned false 
-        public string ValidationContactError(string name, string ip, int Age);
+        public string GetLastValidationContactError();
 
 
         //example for validation :

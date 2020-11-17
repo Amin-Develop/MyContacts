@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MyContacts.Data;
 using MyContacts.Interfaces.Validations.Repositories;
 
 namespace MyContacts.Interfaces.Validations.Services
@@ -10,56 +7,30 @@ namespace MyContacts.Interfaces.Validations.Services
 	{
 		bool IValidationRepository.IsContactValid(string name, string ip, int Age)
 		{
-			if (string.IsNullOrEmpty(name.Trim())) return false;
-
-			if (string.IsNullOrEmpty(ip.Trim())) return false;
-
-			if (string.IsNullOrEmpty(Age.ToString().Trim())) return false;
-
-			// todo: check from database
-
-			if (Age > 99 || Age < 10) return false;
-
-			return true;
+			throw new NotImplementedException();
 		}
 
 		bool IValidationRepository.IsLoginFormValid(string username, string pwd)
 		{
-			if (string.IsNullOrEmpty(username.Trim())) return false;
-
-			if (string.IsNullOrEmpty(pwd.Trim())) return false;
-
-			// todo: check from database
-
-			return true;
+			throw new NotImplementedException();
 		}
 
 		bool IValidationRepository.IsRegisterFormValid(string username, string pwd, string confirmpwd)
 		{
-			if (string.IsNullOrEmpty(username.Trim())) return false;
-
-			if (string.IsNullOrEmpty(pwd.Trim())) return false;
-
-			if (string.IsNullOrEmpty(confirmpwd.Trim())) return false;
-
-			if (!pwd.Equals(confirmpwd)) return false;
-
-			// todo: check from database
-			
-			return true;
+			throw new NotImplementedException();
 		}
 
-		string IValidationRepository.LoginFormErrors(string username, string pwd)
+		public string GetLastRegisterFormError()
 		{
 			throw new NotImplementedException();
 		}
 
-		string IValidationRepository.RegisterFormErrors(string username, string pwd, string confirmpwd)
+		public string GetLastLoginFormErrors()
 		{
 			throw new NotImplementedException();
 		}
 
-		string IValidationRepository.ValidationContactError(string name, string ip, int Age)
+		public string GetLastValidationContactError()
 		{
 			throw new NotImplementedException();
 		}
