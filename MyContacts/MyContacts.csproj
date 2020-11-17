@@ -65,13 +65,15 @@
     </Compile>
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DatabaseHelper.cs" />
-    <Compile Include="Interfaces\IDatabaseHelper.cs" />
+    <Compile Include="Interfaces\DbHelper.cs" />
+    <Compile Include="Interfaces\Singleton.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
