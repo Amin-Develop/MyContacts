@@ -1,6 +1,5 @@
-﻿using System;
+﻿using MyContacts.Interfaces;
 using System.Data.SQLite;
-using MyContacts.Interfaces;
 
 namespace MyContacts.Data
 {
