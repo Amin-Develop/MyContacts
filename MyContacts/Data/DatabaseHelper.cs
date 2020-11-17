@@ -1,4 +1,5 @@
 ﻿using MyContacts.Interfaces;
+using MyContacts.Model;
 
 namespace MyContacts.Data
 {
@@ -8,14 +9,14 @@ namespace MyContacts.Data
 		{
 		}
 
-        public override void InsertContact(string name, string ip, int Age)
+        public override void InsertContact(Contact contact)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void Register()
+        public override void Register(User user)
         {
             throw new System.NotImplementedException();
         }
-	}
+    }
 }

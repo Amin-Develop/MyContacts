@@ -63,16 +63,16 @@ namespace MyContacts.Account
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Register register = new Register();
+            Register register = new Register();
             this.Close();
-            //register.ShowDialog();
+            register.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (!_validationRepository.IsLoginFormValid(txtUsr.Text,txtPsw.Text))
             {
-                txtRes.Text = _validationRepository.LoginFormErrors(txtUsr.Text,txtPsw.Text);
+                txtRes.Text = _validationRepository.ReturnError();
             }
             else
             {

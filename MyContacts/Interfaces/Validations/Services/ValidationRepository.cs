@@ -8,7 +8,10 @@ namespace MyContacts.Interfaces.Validations.Services
 {
 	public class ValidationRepository : IValidationRepository
 	{
-		bool IValidationRepository.IsContactValid(string name, string ip, int Age)
+		public static string _errorText;
+
+
+        bool IValidationRepository.IsContactValid(string name, string ip, int Age)
 		{
 			if (string.IsNullOrEmpty(name.Trim())) return false;
 
@@ -22,6 +25,10 @@ namespace MyContacts.Interfaces.Validations.Services
 
 			return true;
 		}
+        public string ReturnError()
+        {
+			return _errorText;
+        }
 
 		bool IValidationRepository.IsLoginFormValid(string username, string pwd)
 		{
@@ -47,21 +54,6 @@ namespace MyContacts.Interfaces.Validations.Services
 			// todo: check from database
 			
 			return true;
-		}
-
-		string IValidationRepository.LoginFormErrors(string username, string pwd)
-		{
-			throw new NotImplementedException();
-		}
-
-		string IValidationRepository.RegisterFormErrors(string username, string pwd, string confirmpwd)
-		{
-			throw new NotImplementedException();
-		}
-
-		string IValidationRepository.ValidationContactError(string name, string ip, int Age)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }
