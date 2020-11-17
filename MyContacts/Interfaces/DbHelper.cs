@@ -38,7 +38,9 @@ namespace MyContacts.Interfaces
         public abstract void Register();
 
 
-        //public abstract 
+        public abstract void InsertContact(string name, string ip, int Age);
+        public abstract bool IsValidContact(string name , string ip , int Age);
+        public abstract string ValidationContactError(string name, string ip, int Age);
 
     }
 }
