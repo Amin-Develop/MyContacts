@@ -24,19 +24,19 @@ namespace MyContacts.Interfaces.Validations.Services
 
 		bool IValidationRepository.IsContactValid(string name, string ip, int Age)
 		{
-			if (string.IsNullOrEmpty(name.Trim()))
+			if (string.IsNullOrEmpty(name.Trim()) || name.Equals(R.Strings.fullname_placeholder))
 			{
 				_errorText = NameFieldEmpty;
 				return false;
 			}
 
-			if (string.IsNullOrEmpty(ip.Trim()))
+			if (string.IsNullOrEmpty(ip.Trim()) || ip.Equals(R.Strings.ip_placeholder))
 			{
 				_errorText = IpFieldEmpty;
 				return false;
 			}
 
-			if (string.IsNullOrEmpty(Age.ToString().Trim()))
+			if (string.IsNullOrEmpty(Age.ToString().Trim()) || Age.ToString().Equals(R.Strings.age_placeholder))
 			{
 				_errorText = AgeFieldEmpty;
 				return false;
@@ -65,13 +65,13 @@ namespace MyContacts.Interfaces.Validations.Services
 
 		bool IValidationRepository.IsLoginFormValid(string username, string pwd)
 		{
-			if (string.IsNullOrEmpty(username.Trim()))
+			if (string.IsNullOrEmpty(username.Trim()) || username.Equals(R.Strings.username_placeholder))
 			{
 				_errorText = UserNameFieldEmpty;
 				return false;
 			}
 
-			if (string.IsNullOrEmpty(pwd.Trim()))
+			if (string.IsNullOrEmpty(pwd.Trim()) || pwd.Equals(R.Strings.password_placeholder))
 			{
 				_errorText = PassFieldEmpty;
 				return false;
@@ -92,27 +92,27 @@ namespace MyContacts.Interfaces.Validations.Services
 			return true;
 		}
 
-		bool IValidationRepository.IsRegisterFormValid(string username, string pwd, string confirmpwd)
+		bool IValidationRepository.IsRegisterFormValid(string username, string pwd, string confirmPwd)
 		{
-			if (string.IsNullOrEmpty(username.Trim()))
+			if (string.IsNullOrEmpty(username.Trim()) || username.Equals(R.Strings.username_placeholder))
 			{
 				_errorText = UserNameFieldEmpty;
 				return false;
 			}
 
-			if (string.IsNullOrEmpty(pwd.Trim()))
+			if (string.IsNullOrEmpty(pwd.Trim()) || pwd.Equals(R.Strings.password_placeholder))
 			{
 				_errorText = PassFieldEmpty;
 				return false;
 			}
 
-			if (string.IsNullOrEmpty(confirmpwd.Trim()))
+			if (string.IsNullOrEmpty(confirmPwd.Trim()) || confirmPwd.Equals(R.Strings.confirmpassword_placeholder))
 			{
 				_errorText = ConfPassFieldEmpty;
 				return false;
 			}
 
-			if (!pwd.Equals(confirmpwd))
+			if (!pwd.Equals(confirmPwd))
 			{
 				_errorText = PassNoMatch;
 				return false;
