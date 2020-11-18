@@ -18,6 +18,11 @@ namespace MyContacts.Interfaces.Validations.Services
 		private const string ConfPassFieldEmpty = "تایید رمز عبور خالی است";
 		private const string AgeNotValid = "سن وارد شده صحیح نمی باشد";
 		private const string PassNoMatch = "رمز های وارد شده مطابقت ندارند";
+		private const string ContactNameExist = "این نام از قبل وجود دارد";
+		private const string ContactIpExist = "این آی پی از قبل وجود دارد";
+		private const string UserNotExist = "این نام کاربری وجود ندارد";
+		private const string UserExist = "این نام کاربری از قبل وجود دارد";
+		private const string WrongLoginPass = "رمز وارد شده اشتباه است";
 
 		private string _errorText;
 
@@ -27,7 +32,6 @@ namespace MyContacts.Interfaces.Validations.Services
 			{
 				_errorText = NameFieldEmpty;
 				return false;
-				
 			}
 
 			if (string.IsNullOrEmpty(ip.Trim()))
@@ -48,7 +52,17 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			// todo: check from database
+			if (((DatabaseHelper) Singleton.GetInstance()).ContactNameExist(name))
+			{
+				_errorText = ContactNameExist;
+				return false;
+			}
+
+			if (((DatabaseHelper) Singleton.GetInstance()).ContactIpExist(ip))
+			{
+				_errorText = ContactIpExist;
+				return false;
+			}
 
 			return true;
 		}
@@ -67,7 +81,17 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			// todo: check from database
+			if (!((DatabaseHelper) Singleton.GetInstance()).UserExist(username))
+			{
+				_errorText = UserNotExist;
+				return false;
+			}
+
+			if (!((DatabaseHelper) Singleton.GetInstance()).GetUserPassword(username).Equals(pwd))
+			{
+				_errorText = WrongLoginPass;
+				return false;
+			}
 
 			return true;
 		}
@@ -98,7 +122,11 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			// todo: check from database
+			if (((DatabaseHelper) Singleton.GetInstance()).UserExist(username))
+			{
+				_errorText = UserExist;
+				return false;
+			}
 
 			return true;
 		}
