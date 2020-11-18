@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MyContacts.Data;
+﻿using MyContacts.Data;
 using MyContacts.Interfaces.Validations.Repositories;
-using MyContacts.Properties;
 
 namespace MyContacts.Interfaces.Validations.Services
 {
@@ -52,13 +48,13 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			if (((DatabaseHelper) Singleton.GetInstance()).ContactNameExist(name))
+			if (DatabaseHelper.GetInstance().ContactNameExist(name))
 			{
 				_errorText = ContactNameExist;
 				return false;
 			}
 
-			if (((DatabaseHelper) Singleton.GetInstance()).ContactIpExist(ip))
+			if (DatabaseHelper.GetInstance().ContactIpExist(ip))
 			{
 				_errorText = ContactIpExist;
 				return false;
@@ -81,13 +77,13 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			if (!((DatabaseHelper) Singleton.GetInstance()).UserExist(username))
+			if (!DatabaseHelper.GetInstance().UserExist(username))
 			{
 				_errorText = UserNotExist;
 				return false;
 			}
 
-			if (!((DatabaseHelper) Singleton.GetInstance()).GetUserPassword(username).Equals(pwd))
+			if (!DatabaseHelper.GetInstance().GetUserPassword(username).Equals(pwd))
 			{
 				_errorText = WrongLoginPass;
 				return false;
@@ -122,7 +118,7 @@ namespace MyContacts.Interfaces.Validations.Services
 				return false;
 			}
 
-			if (((DatabaseHelper) Singleton.GetInstance()).UserExist(username))
+			if (DatabaseHelper.GetInstance().UserExist(username))
 			{
 				_errorText = UserExist;
 				return false;

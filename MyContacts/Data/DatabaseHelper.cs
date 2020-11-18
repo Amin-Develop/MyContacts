@@ -1,11 +1,12 @@
-﻿using System.Data;
-using MyContacts.Interfaces;
+﻿using MyContacts.Interfaces;
 using MyContacts.Model;
 
 namespace MyContacts.Data
 {
 	public class DatabaseHelper : DbHelper
 	{
+		private static DatabaseHelper _this;
+
 		// commands
 		private const string CheckUserTable = "SELECT name FROM sqlite_master WHERE type='table' AND name='users'";
 		private const string CheckContactTable = "SELECT name FROM sqlite_master WHERE type='table' AND name='contacts'";
@@ -34,6 +35,11 @@ namespace MyContacts.Data
 		{
 			if (!_database.RawQuery(CheckUserTable).HasRows) _database.ExecSql(CreateUserTable);
 			if (!_database.RawQuery(CheckContactTable).HasRows) _database.ExecSql(CreateContactTable);
+		}
+
+		public static DatabaseHelper GetInstance()
+		{
+			return _this ??= new DatabaseHelper();
 		}
 
 		public override void InsertContact(Contact contact)

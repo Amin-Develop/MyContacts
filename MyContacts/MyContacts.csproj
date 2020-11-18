@@ -81,7 +81,6 @@
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DatabaseHelper.cs" />
     <Compile Include="Interfaces\DbHelper.cs" />
-    <Compile Include="Interfaces\Singleton.cs" />
     <Compile Include="Interfaces\Validations\Repositories\IValidationRepository.cs" />
     <Compile Include="Interfaces\Validations\Services\ValidationRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">

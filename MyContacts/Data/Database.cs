@@ -3,8 +3,10 @@ using System.Data.SQLite;
 
 namespace MyContacts.Data
 {
-	public class Database : Singleton
+	public class Database
 	{
+		private static Database _this;
+
 		private SQLiteConnection _sqLiteConnection;
 		private SQLiteCommand _sqLiteCommand;
 		private SQLiteDataReader _dataReader;
@@ -16,6 +18,8 @@ namespace MyContacts.Data
 
 			_sqLiteCommand = _sqLiteConnection.CreateCommand();
 		}
+
+		public static Database GetInstance() => _this ??= new Database();
 
 		public void ExecSql(string sql)
 		{
