@@ -15,10 +15,5 @@ namespace MyContacts.Model
         public int Age { get; set; }
 
         public virtual User User { get; set; }
-
-        public Contact()
-        {
-
-        }
     }
 }

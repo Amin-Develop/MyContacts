@@ -13,11 +13,5 @@ namespace MyContacts.Model
         public string Password { get; set; }
 
         public virtual List<Contact> Contacts { get; set; }
-
-
-        public User()
-        {
-
-        }
     }
 }

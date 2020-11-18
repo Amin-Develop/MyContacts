@@ -2,7 +2,6 @@
 {
     interface IValidationRepository
     {
-
         public string ReturnError();
 
         //check are register forms inputs valid (not empty , not exist same user , cofirm pwd is match)
