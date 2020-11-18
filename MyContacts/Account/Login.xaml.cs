@@ -18,7 +18,7 @@ namespace MyContacts.Account
 
 		private void TextBox_GotFocus(object sender, RoutedEventArgs e)
 		{
-			if (txtPsw.Text == "کلمه ی عبور")
+			if (txtPsw.Text == R.Strings.password_placeholder)
 			{
 				txtPsw.Text = "";
 				txtPsw.FlowDirection = FlowDirection.LeftToRight;
@@ -27,7 +27,7 @@ namespace MyContacts.Account
 
 		private void TextBox_GotFocus_1(object sender, RoutedEventArgs e)
 		{
-			if (txtUsr.Text == "نام کاربری")
+			if (txtUsr.Text == R.Strings.username_placeholder)
 			{
 				txtUsr.Text = "";
 				txtUsr.FlowDirection = FlowDirection.LeftToRight;
@@ -39,7 +39,7 @@ namespace MyContacts.Account
 			if (string.IsNullOrEmpty(txtPsw.Text))
 			{
 				txtPsw.FlowDirection = FlowDirection.RightToLeft;
-				txtPsw.Text = "کلمه ی عبور";
+				txtPsw.Text = R.Strings.password_placeholder;
 			}
 		}
 
@@ -48,7 +48,7 @@ namespace MyContacts.Account
 			if (string.IsNullOrEmpty(txtUsr.Text))
 			{
 				txtUsr.FlowDirection = FlowDirection.RightToLeft;
-				txtUsr.Text = "نام کاربری";
+				txtUsr.Text = R.Strings.username_placeholder;
 			}
 		}
 
