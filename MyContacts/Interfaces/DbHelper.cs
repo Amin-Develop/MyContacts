@@ -12,7 +12,6 @@ namespace MyContacts.Interfaces
         {
             _database = Database.GetInstance();
         }
-
         //if all thing was valid the Login form must Show() after the user inserted
         public abstract void Register(User user);
 
