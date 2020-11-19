@@ -22,6 +22,9 @@ namespace MyContacts.Interfaces
         public abstract List<Contact> GetContactsByUser(User user);
 
         //find user in db by username and password 
-        public abstract User GetCurrentUser(string username, string passowrd);
+        public abstract User GetCurrentUser(string username,string password);
+
+        //return all users wich their fullnames contains the 'containname' parameter
+        public abstract List<Contact> GetContactByFullName(User user, string containname);
     }
 }
