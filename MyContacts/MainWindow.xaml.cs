@@ -44,28 +44,34 @@ namespace MyContacts
 			carouselMenu.Children.Add(currentIp);
 			Grid.SetRow(currentIp, 1);
 
-			var itemsBinding = new Binding("Contacts") {Source = DataContext};
+			var itemsBinding = new Binding("Contacts") { Source = DataContext };
 
 			contactsList = new ListView
 			{
-				ItemsSource = (System.Collections.IEnumerable) itemsBinding.Source,
+				ItemsSource = (System.Collections.IEnumerable)itemsBinding.Source,
 				Margin = new Thickness(5),
-				Background = (Brush) new BrushConverter().ConvertFrom("#1f2936"),
+				Background = (Brush)new BrushConverter().ConvertFrom("#1f2936"),
 			};
 
 			Grid.SetRow(contactsList, 1);
 			Grid.SetColumnSpan(contactsList, 2);
-			
+
 			foreach (var item in user.Contacts)
 			{
-				Border border = new Border() {BorderThickness = new Thickness(0), Width = 80, Height = 80, CornerRadius = new CornerRadius(12)};
+				Border border = new Border() { BorderThickness = new Thickness(0), Width = 80, Height = 80, CornerRadius = new CornerRadius(12) };
 				StackPanel container = new StackPanel()
 				{
 					Height = 100,
 					Orientation = Orientation.Horizontal
 				};
-				Image image = new Image()
-					{Source = new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{user.Id}_{item.Id}.jpg"))};
+
+				Image image = new Image();
+				try
+				{
+					image.Source = new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{user.Id}_{item.Id}.jpg"));
+				}
+				catch (Exception) { }
+
 				TextBlock textBlock = new TextBlock()
 				{
 					Text = $"{item.FullName}",
@@ -163,23 +169,23 @@ namespace MyContacts
 
 		private void txtSearch_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
 		{
-			var updatedContacts = (List<Contact>) DataContext;
+			var updatedContacts = (List<Contact>)DataContext;
 			if (!string.IsNullOrEmpty(txtSearch.Text) || txtSearch.Text != "جستجو")
 			{
-				updatedContacts = Utilities.Utilities.FilterByFullName(txtSearch.Text, (List<Contact>) DataContext);
+				updatedContacts = Utilities.Utilities.FilterByFullName(txtSearch.Text, (List<Contact>)DataContext);
 			}
 
 			contactsList.Items.Clear();
 			foreach (var item in updatedContacts)
 			{
-				Border border = new Border() {BorderThickness = new Thickness(0), Width = 80, Height = 80, CornerRadius = new CornerRadius(12)};
+				Border border = new Border() { BorderThickness = new Thickness(0), Width = 80, Height = 80, CornerRadius = new CornerRadius(12) };
 				StackPanel container = new StackPanel()
 				{
 					Height = 100,
 					Orientation = Orientation.Horizontal
 				};
 				Image image = new Image()
-					{Source = new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{user.Id}_{item.Id}.jpg"))};
+				{ Source = new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{user.Id}_{item.Id}.jpg")) };
 				TextBlock textBlock = new TextBlock()
 				{
 					Text = $"{item.FullName}",

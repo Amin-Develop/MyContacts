@@ -47,7 +47,6 @@ namespace MyContacts.Data
 
 		public override void InsertContact(Contact contact)
 		{
-			if (contact == null) throw new System.Exception();
 			var formattedStr = string.Format(InsertContactRow, contact.User.Id, contact.FullName, contact.Ip, contact.Age);
 			_database.ExecSql(formattedStr);
 		}
