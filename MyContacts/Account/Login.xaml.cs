@@ -1,8 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
+using MyContacts.Data;
 using MyContacts.Interfaces.Validations.Repositories;
 using MyContacts.Interfaces.Validations.Services;
+using MyContacts.Model;
 
 namespace MyContacts.Account
 {
@@ -73,7 +75,8 @@ namespace MyContacts.Account
 			}
 			else
 			{
-				MainWindow mainWindow = new MainWindow();
+				User user = DatabaseHelper.GetInstance().GetCurrentUser(txtUsr.Text,txtPsw.Text);
+				MainWindow mainWindow = new MainWindow(user);
 				Close();
 				mainWindow.Show();
 			}

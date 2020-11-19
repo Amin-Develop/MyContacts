@@ -1,5 +1,6 @@
 ﻿using MyContacts.Interfaces;
 using MyContacts.Model;
+using System.Collections.Generic;
 
 namespace MyContacts.Data
 {
@@ -79,5 +80,15 @@ namespace MyContacts.Data
 			dataReader.Read();
 			return dataReader.GetString(0);
 		}
-	}
+
+        public override List<Contact> GetAllUsers(User user)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override User GetCurrentUser(string username, string passowrd)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }
