@@ -1,7 +1,5 @@
-﻿using MyContacts.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using MyContacts.Model;
 
 namespace MyContacts.Utilities
 {
@@ -9,7 +7,8 @@ namespace MyContacts.Utilities
     {
         public static List<Contact> FilterByFullName(string fullname,List<Contact> contacts)
         {
-            return null;
+            var filteredList = contacts.FindAll(contact => contact.FullName.Contains(fullname));
+            return filteredList;
         }
     }
 }

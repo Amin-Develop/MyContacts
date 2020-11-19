@@ -76,6 +76,7 @@ namespace MyContacts.Data
 					Ip = query.GetString(3),
 					Age = query.GetInt32(4)
 				};
+				contacts.Add(contact);
 			}
 
 			return contacts;
@@ -124,11 +125,6 @@ namespace MyContacts.Data
 			var dataReader = _database.RawQuery(formattedStr);
 			dataReader.Read();
 			return dataReader.GetString(0);
-		}
-
-		public override List<Contact> GetContactByFullName(User user, string containname)
-		{
-			throw new System.NotImplementedException(); // put it in your own class and just use it. I'll complete that for you there :)
 		}
 	}
 }
