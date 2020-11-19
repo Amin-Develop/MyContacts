@@ -9,6 +9,7 @@ using System.Windows.Data;
 using MyContacts.Model;
 using MyContacts.Data;
 using System.Collections.Generic;
+using MyContacts.Contacts;
 
 namespace MyContacts
 {
@@ -139,11 +140,11 @@ namespace MyContacts
 
 		private void Button_Click_2(object sender, RoutedEventArgs e)
 		{
-			//AddContact form = new AddContact(user);
-			//this.IsEnabled = true;
-			//form.ShowDialog();
-			//BeginInit();
-			//EndInit();
+			AddContact form = new AddContact(user);
+			this.IsEnabled = true;
+			form.ShowDialog();
+			BeginInit();
+			EndInit();
 		}
 
 		public string GetLocalIPAddress()

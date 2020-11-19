@@ -27,7 +27,7 @@ namespace MyContacts.Data
 
 		// ------------------------------------------------------------------------------------------------------------------------ \\
 
-		private const string CheckExistingContactName = "SELECT id FROM contatcs WHERE full_name='{0}'";
+		private const string CheckExistingContactName = "SELECT id FROM contacts WHERE full_name='{0}'";
 		private const string CheckExistingContactIp = "SELECT id FROM contacts WHERE ip='{0}'";
 		private const string CheckUserExist = "SELECT id FROM users WHERE username='{0}'";
 		private const string GetUserPass = "SELECT pass FROM users WHERE username='{0}'";
@@ -47,6 +47,7 @@ namespace MyContacts.Data
 
 		public override void InsertContact(Contact contact)
 		{
+			if (contact == null) throw new System.Exception();
 			var formattedStr = string.Format(InsertContactRow, contact.User.Id, contact.FullName, contact.Ip, contact.Age);
 			_database.ExecSql(formattedStr);
 		}
@@ -88,9 +89,9 @@ namespace MyContacts.Data
 			var query = _database.RawQuery(formattedStr);
 
 			var user = new User();
-			
+
 			if (!query.HasRows) return user;
-			
+
 			query.Read();
 			user.Id = query.GetInt32(0);
 			user.UserName = query.GetString(1);
