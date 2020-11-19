@@ -1,0 +1,66 @@
+﻿<Window x:Class="MyContacts.Contacts.AddContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyContacts.Contacts"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        FlowDirection="RightToLeft" FontFamily="/MyContacts;component/Fonts/#B Nazanin"
+        Title="افزودن مخاطب" Height="350" Width="500" Background="#1f2936">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Border 
+            Margin="10" Background="#828282"
+            Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <TextBox GotFocus="TextBox_GotFocus_1" 
+                     LostFocus="TextBox_LostFocus_1" Name="txtFullName"
+                     Text="نام و نام خانوادگی" VerticalAlignment="Center"
+                     FontSize="22" Padding="20,0,0,0" Background="Transparent"
+                     Foreground="White" BorderThickness="0" />
+        </Border>
+        <Border  
+            Margin="10" Background="#828282"
+            Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Stretch">
+            <TextBox  FontFamily="Arial" x:Name="txtAge" PreviewTextInput="txtAge_PreviewTextInput"
+                GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="سن" VerticalAlignment="Center"
+                     FontSize="22" Padding="20,0,0,0" Background="Transparent"
+                     Foreground="White" BorderThickness="0" />
+        </Border>
+        <Border  
+            Margin="10" Background="#828282"
+            Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Stretch">
+            <TextBox Name="txtIp" FontFamily="Arial" PreviewTextInput="txtIp_PreviewTextInput"
+                GotFocus="TextBox_GotFocus_2" LostFocus="TextBox_LostFocus_2" 
+                     Text="آی پی" VerticalAlignment="Center"
+                     FontSize="22" Padding="20,0,0,0" Background="Transparent"
+                     Foreground="White" BorderThickness="0" />
+        </Border>
+        <Border Grid.ColumnSpan="2" Grid.Row="3">
+            <TextBlock Name="txtRes" Padding="20,0,0,0"
+                       Foreground="Red" FlowDirection="RightToLeft"
+                       FontSize="21" VerticalAlignment="Center"/>
+        </Border>
+        <Button Content="انتخاب تصویر" Grid.Row="4" Grid.ColumnSpan="2"
+                   Padding="15,0,0,0" VerticalAlignment="Center"
+                   FontSize="21" Foreground="White" Click="Button_Click_1"
+                Background="#828282"/>
+        <Border 
+            Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Stretch">
+            <Button Content="تایید" VerticalAlignment="Center"
+                     FontSize="30" Background="Transparent"
+                     Foreground="White" BorderThickness="0" Click="Button_Click" />
+        </Border>
+    </Grid>
+</Window>
