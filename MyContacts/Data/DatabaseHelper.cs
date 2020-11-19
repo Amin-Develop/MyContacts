@@ -81,7 +81,7 @@ namespace MyContacts.Data
 			return dataReader.GetString(0);
 		}
 
-        public override List<Contact> GetAllUsers(User user)
+		public override List<Contact> GetContactsByUser(User user)
         {
             throw new System.NotImplementedException();
         }

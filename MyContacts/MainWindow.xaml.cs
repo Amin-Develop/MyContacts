@@ -7,6 +7,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Data;
 using MyContacts.Model;
+using MyContacts.Data;
+using System.Collections.Generic;
 
 namespace MyContacts
 {
@@ -24,7 +26,7 @@ namespace MyContacts
         {
             user = currentUser;
             InitializeComponent();
-            //DataContext = new { Contacts = user.Contacts };
+            DataContext = DatabaseHelper.GetInstance().GetContactsByUser(user);
             //this.DataContextChanged += onchangedContext;
         }
 
@@ -116,7 +118,7 @@ namespace MyContacts
             }
         }
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             isCarouselOn = false;
             manageOutCarousel();
@@ -128,7 +130,7 @@ namespace MyContacts
             manageOutCarousel();
         }
 
-        private async void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!double.IsNaN(this.Width))
             {
@@ -160,10 +162,10 @@ namespace MyContacts
 
         private void txtSearch_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            var updatedContacts = user.Contacts;
+            var updatedContacts = (List<Contact>)DataContext;
             if (!string.IsNullOrEmpty(txtSearch.Text) || txtSearch.Text != "جستجو")
             {
-                //updatedContacts = user.Contacts.Where(u => u.FullName.Contains(txtSearch.Text)).ToList();
+                updatedContacts = Utilities.Utilities.FilterByFullName(txtSearch.Text,(List<Contact>)DataContext);
             }
             contactsList.Items.Clear();
             foreach (var item in updatedContacts)
