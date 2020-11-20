@@ -90,7 +90,7 @@ namespace MyContacts.Contacts
                     DatabaseHelper.GetInstance().InsertContact(contact);
                     if (!Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}/Images"))
                         Directory.CreateDirectory(($"{AppDomain.CurrentDomain.BaseDirectory}/Images"));
-                    File.Copy(imgDialog.FileName, ($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{_user.Id}_{contact.Id + 1}.jpg"));
+                    File.Copy(imgDialog.FileName, ($"{AppDomain.CurrentDomain.BaseDirectory}/Images/{_user.Id}_{_user.Contacts.Count}.jpg"));
 
                     DialogResult = true;
                     Close();
